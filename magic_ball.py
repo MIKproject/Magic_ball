@@ -2,6 +2,9 @@
 from random import *
 import time
 from tqdm import tqdm
+from colorama import init
+init()
+from colorama import Fore
 
 #  Создаем список progressbar
 mylist = [1, 2, 3]
@@ -25,7 +28,8 @@ while True:
     question = input(f'{name_user}, задайте свой вопрос: ') #  Запрашиваем вопрос у пользователя
     for i in tqdm(mylist): #  Включаем progressbar
         time.sleep(1)
-    print(choice(answers)) #  Случайный ответ пользователю из списка answers
+    print(Fore.RED + choice(answers)) #  Случайный ответ пользователю из списка answers
+    init(autoreset=True)
     question_again = input('Имеются еще вопросы (да/нет): ') #  Спрашиваем пользователя
     if question_again in 'да': #  Если да, повторяем цикл
         continue
